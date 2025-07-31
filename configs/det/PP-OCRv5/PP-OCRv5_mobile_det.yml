@@ -1,4 +1,5 @@
 Global:
+  #  model_name 用于tools/infer_det.py 里面有个模型名字判断，用的就是这个名字
   model_name: PP-OCRv5_mobile_det # To use static model for inference.
   debug: false
   use_gpu: true
