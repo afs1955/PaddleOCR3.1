@@ -4,10 +4,10 @@ Global:
   use_gpu: true
   epoch_num: &epoch_num 100
   log_smooth_window: 20
-  print_batch_step: 100
-  save_model_dir: ./output/PP-OCRv4_mobile_det
-  save_epoch_step: 10
-  eval_batch_step:
+  print_batch_step: 200   # 每200个iter(但好像限制为最大24次迭代了)打印一次日志(loss等信息)
+  save_model_dir: YangWorkspace/model
+  save_epoch_step: 10   # 每10个epoch保存一次模型
+  eval_batch_step:      # 从第0个iter开始，每100个iter评估一次
   - 0
   - 100
   cal_metric_during_train: false
@@ -71,9 +71,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/train
+    data_dir: /root/pyProjcet/PaddleOCR3.1/train_data/det/train
     label_file_list:
-      - /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/train.txt
+      - /root/pyProjcet/PaddleOCR3.1/train_data/det/train.txt
     ratio_list: [1.0]
     transforms:
     - DecodeImage:
@@ -139,9 +139,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/val
+    data_dir: /root/pyProjcet/PaddleOCR3.1/train_data/det/val
     label_file_list:
-      - /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/val.txt
+      - /root/pyProjcet/PaddleOCR3.1/train_data/det/val.txt
     transforms:
     - DecodeImage:
         img_mode: BGR

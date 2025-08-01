@@ -5,8 +5,8 @@ Global:
   epoch_num: 100
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/PP-OCRv3_mobile_det/
-  save_epoch_step: 100
+  save_model_dir: YangWorkspace/model
+  save_epoch_step: 10
   eval_batch_step:
   - 0
   - 100
@@ -67,9 +67,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/train
+    data_dir: /root/pyProjcet/PaddleOCR/train_data/det/train
     label_file_list:
-      - /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/train.txt
+      - /root/pyProjcet/PaddleOCR/train_data/det/train.txt
     ratio_list: [1.0]
     transforms:
     - DecodeImage:
@@ -131,9 +131,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/val
+    data_dir: /root/pyProjcet/PaddleOCR/train_data/det/val
     label_file_list:
-      - /root/pyProjcet/PaddleOCR3.1/PaddleOCR/train_data/det/val.txt
+      - /root/pyProjcet/PaddleOCR/train_data/det/val.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
